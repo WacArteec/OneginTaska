@@ -30,7 +30,9 @@ int main()
 
     StrInput(&Onegin, file_onegin);
 
-//    Sorter(&Onegin);
+    TextPrint(Onegin);
+
+    Sorter(&Onegin);
 
     TextPrint(Onegin);
 
@@ -47,9 +49,9 @@ int main()
 
 void Sorter(struct Book *Onegin)
 {
-    for(int i = 0; i < vert-1; i++)
+    for(int i = 0; i < hor-1; i++)
     {
-        for(int j = 0; j < vert-1 - i; j++)
+        for(int j = 0; j < hor - 1 - i; j++)
         {
             if(StrCmp(Onegin, i, j)) AddrSwapper(Onegin->text[j], Onegin->text[j+1]);
         }
@@ -60,6 +62,7 @@ int StrCmp(struct Book *Onegin, int i, int j)
 {
     for(int k = 0; k < vert-1; k++)
     {
+    printf("CMP %d \n", k);
             if((Onegin->text[i][k] - Onegin->text[j][k]) > 0 || Onegin->text[i][k] == 0) return 1;
             else if(Onegin->text[j][k] == 0) break;
     }
@@ -68,7 +71,7 @@ int StrCmp(struct Book *Onegin, int i, int j)
 
 void AddrSwapper(char *a, char *b)
 {
-    int c = *a;
+    size_t c = *a;
     *a = *b;
     *b = c;
 }
