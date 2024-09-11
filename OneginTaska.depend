@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1726078717 source:d:\codeblocks\onegintaska\main.cpp
+	<stdio.h>
+	<stdlib.h>
+	<assert.h>
+
