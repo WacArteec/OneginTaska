@@ -5,6 +5,7 @@
 #include <Inputer.h>
 #include <StructuresForOnegin.h>
 #include <Sorter.h>
+#include <Output.h>
 
 void TextPrint(struct Book *Onegin);
 
@@ -16,11 +17,11 @@ int main()
 
     StrInput(&Onegin);
 
-    TextPrint(&Onegin);
+    //Sorter(&Onegin);
 
-//    Sorter(&Onegin);
+    printf("%d", Onegin.count_lines);
 
-//    TextPrint(&Onegin);
+    Outputer(&Onegin);
 
     free(Onegin.text);
 

@@ -1,15 +1,16 @@
 # depslib dependency file v1.0
-1726169208 source:d:\codeblocks\onegintaska\main.cpp
+1726254533 source:d:\codeblocks\onegintaska\main.cpp
 	<stdio.h>
 	<stdlib.h>
 	<assert.h>
 	<Inputer.h>
 	<StructuresForOnegin.h>
 	<Sorter.h>
+	<Output.h>
 
 1726158086 d:\codeblocks\onegintaska\include\inputer.h
 
-1726169047 source:d:\codeblocks\onegintaska\src\inputer.cpp
+1726254628 source:d:\codeblocks\onegintaska\src\inputer.cpp
 	<stdio.h>
 	<assert.h>
 	"Inputer.h"
@@ -17,8 +18,17 @@
 
 1726165438 d:\codeblocks\onegintaska\include\structuresforonegin.h
 
-1726168189 source:d:\codeblocks\onegintaska\src\sorter.cpp
+1726250855 source:d:\codeblocks\onegintaska\src\sorter.cpp
 	"Sorter.h"
+	<StructuresForOnegin.h>
 
 1726169208 d:\codeblocks\onegintaska\include\sorter.h
+
+1726252871 d:\codeblocks\onegintaska\include\output.h
+
+1726254316 source:d:\codeblocks\onegintaska\src\output.cpp
+	<stdio.h>
+	<assert.h>
+	"Output.h"
+	<StructuresForOnegin.h>
 

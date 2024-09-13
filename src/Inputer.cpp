@@ -21,8 +21,12 @@ assert(Onegin->text);
 
     size_t count_elements = fread(Onegin->text, sizeof(char), file_size, file_onegin);
 
+    Onegin->text = (char*)realloc(Onegin->text, count_elements + 1);
+
     long long int count_lines = 1;
     Onegin->adreses[0] = &(Onegin->text[0]);
+
+    printf("Before array with adreses");
 
     for(size_t i = 0; i < count_elements; i++)
     {
@@ -33,6 +37,7 @@ assert(Onegin->text);
             count_lines += 1;
         }
     }
+    printf("After array with adreses");
     Onegin->count_lines = count_lines;
 //printf("%ld %zd", count_elements, file_size);
 

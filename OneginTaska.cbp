@@ -35,10 +35,12 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/Inputer.h" />
+		<Unit filename="include/Output.h" />
 		<Unit filename="include/Sorter.h" />
 		<Unit filename="include/StructuresForOnegin.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Inputer.cpp" />
+		<Unit filename="src/Output.cpp" />
 		<Unit filename="src/Sorter.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
