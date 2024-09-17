@@ -7,14 +7,15 @@
 void Outputer(struct Book *Onegin)
 {
     FILE* file_onegin_out_leftsort = fopen("OneginSortLeft.txt", "w");
+
+assert(file_onegin_out_leftsort);
+
     if(file_onegin_out_leftsort)
         for(int i = 0; i < Onegin->count_lines; i++)
         {
             fputs(Onegin->adreses[i], file_onegin_out_leftsort);
             fputs("\n", file_onegin_out_leftsort);
         }
-    else
-        assert(file_onegin_out_leftsort);
 
-    assert(!fclose(file_onegin_out_leftsort));
+assert(!fclose(file_onegin_out_leftsort));
 }
