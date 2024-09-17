@@ -21,6 +21,7 @@ void Sorter(struct Book *Onegin)
         }
         printf("\n %d \n", i);
     }
+    Onegin->adreses[2];
 }
 
 int StrCmp(char *str1, char *str2)
@@ -31,16 +32,15 @@ int StrCmp(char *str1, char *str2)
         //printf("%s\n", str1);
         //printf("%s\n", str2);
 
-        printf("%d \n", __LINE__); //!!txlib!! $$ $meow(hello)
+        printf("%d", i); //printf("%d \n", __LINE__); //!!txlib!! $$ $meow(hello)
 
         if(str1[i] != str2[i])  return (str1[i] - str2[i]);
         if(str2[i] == '\0')     return 0;
         if(str1[i] == '\0')     return 1;
-        i++;
+        i+=1;
     }
     return 0;
 }
-
 void AddrSwapper(char *a, char *b)
 {
    // printf("test1\n");

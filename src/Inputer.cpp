@@ -9,16 +9,15 @@
 
 #define $$$
 
+int FileInfo(FILE *file_onegin);
+
 void StrInput(struct Book *Onegin)
 {
 
     FILE *file_onegin = fopen("EnglishOnegin.txt", "rb");
 $$$ assert(file_onegin);
 
-    fseek(file_onegin, 0, SEEK_END);
-    long int file_size = ftell(file_onegin);
-$$$ if(file_size == -1L) printf("!File Size %s is 0! : %s", strerror(errno));
-    rewind(file_onegin);
+ int file_size = FileInfo(file_onegin);
 
     Onegin->text = (char*)calloc(file_size + 1, sizeof(char)); //вместо sizeof(char) можно 1
 $$$ assert(Onegin->text);
@@ -56,4 +55,13 @@ printf("%s \n \n", Onegin->adreses[i]);
     int errclose = !fclose(file_onegin);
 $$$ assert(errclose); //!NDEBUG! !change to if!
 
+}
+
+int FileInfo(FILE *file_onegin)
+{
+    fseek(file_onegin, 0, SEEK_END);
+    int file_size = ftell(file_onegin);
+$$$ if(file_size == -1L) printf("!File Size is 0! : %s", strerror(errno));
+    rewind(file_onegin);
+    return file_size;
 }
