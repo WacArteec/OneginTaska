@@ -4,7 +4,6 @@
 #include <StructuresForOnegin.h>
 
 int StrCmp(char *str1, char *str2);
-void AddrSwapper(char *a, char *b);
 
 void Sorter(struct Book *Onegin)
 {
@@ -14,14 +13,13 @@ void Sorter(struct Book *Onegin)
         {
             if(StrCmp(Onegin->adreses[j], Onegin->adreses[j+1]))
             {
-                printf("\n %d = ", Onegin->adreses[j]);
-                AddrSwapper((Onegin->adreses[j]), (Onegin->adreses[j+1]));
+                printf(" %d = \n", Onegin->adreses[j]);
+                //AddrSwapper((Onegin->adreses[j]), (Onegin->adreses[j+1]));
                 printf(" %d \n", Onegin->adreses[j]);
             }
         }
         printf("\n %d \n", i);
     }
-    Onegin->adreses[2];
 }
 
 int StrCmp(char *str1, char *str2)
@@ -29,10 +27,7 @@ int StrCmp(char *str1, char *str2)
     int i = 0;
     while(1)
     {
-        //printf("%s\n", str1);
-        //printf("%s\n", str2);
-
-        printf("%d", i); //printf("%d \n", __LINE__); //!!txlib!! $$ $meow(hello)
+        //printf("%d \n", __LINE__); //!!txlib!! $$ $meow(hello)
 
         if(str1[i] != str2[i])  return (str1[i] - str2[i]);
         if(str2[i] == '\0')     return 0;
@@ -41,14 +36,5 @@ int StrCmp(char *str1, char *str2)
     }
     return 0;
 }
-void AddrSwapper(char *a, char *b)
-{
-   // printf("test1\n");
-    char c = *a;
-    //printf("test2\n");
-    *a = *b;
-    //printf("test3\n");
-    *b = c;
-    //printf("test4\n");
-}
+
 

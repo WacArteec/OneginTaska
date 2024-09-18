@@ -4,7 +4,7 @@
 struct Book
 {
     char *text;
-    long long int count_lines;
+    int count_lines;
     char* adreses[];
 };
 

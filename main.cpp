@@ -17,7 +17,7 @@ int main()
 
     StrInput(&Onegin);
 
-    Sorter(&Onegin);
+//    Sorter(&Onegin);
 
     printf("%d", Onegin.count_lines);
 

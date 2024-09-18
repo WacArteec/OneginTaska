@@ -10,6 +10,7 @@
 #define $$$
 
 int FileInfo(FILE *file_onegin);
+int ReplaceSymbol(char* text, int count_elements, char in, char out, struct Book *Onegin);
 
 void StrInput(struct Book *Onegin)
 {
@@ -17,23 +18,19 @@ void StrInput(struct Book *Onegin)
     FILE *file_onegin = fopen("EnglishOnegin.txt", "rb");
 $$$ assert(file_onegin);
 
- int file_size = FileInfo(file_onegin);
+    int file_size = FileInfo(file_onegin);
 
     Onegin->text = (char*)calloc(file_size + 1, sizeof(char)); //вместо sizeof(char) можно 1
 $$$ assert(Onegin->text);
 
     size_t count_elements = fread(Onegin->text, sizeof(char), file_size, file_onegin);
 
-    //char*  = (char*)realloc(Onegin->text, count_elements + 1);
-    //Onegin->text = ;
-
-
-    //long long int count_lines = 1;
     Onegin->adreses[0] = &(Onegin->text[0]);
     Onegin->count_lines = 1;
 
 $$$ printf("Before array with adreses");
 
+    Onegin->count_lines = ReplaceSymbol(Onegin->text, count_elements, '\n', '\0', Onegin);
     for(size_t i = 0; i < count_elements; i++)
     {
         if(Onegin->text[i] == '\n')
@@ -44,13 +41,6 @@ $$$ printf("Before array with adreses");
         } //!replace doooo.h!
     }
 $$$ printf("After array with adreses");
-    //Onegin->count_lines = count_lines;
-//printf("%ld %zd", count_elements, file_size);
-
-/*for(int i = 0; i < Onegin->count_lines; i++)
-{
-printf("%s \n \n", Onegin->adreses[i]);
-}*/
 
     int errclose = !fclose(file_onegin);
 $$$ assert(errclose); //!NDEBUG! !change to if!
@@ -64,4 +54,19 @@ int FileInfo(FILE *file_onegin)
 $$$ if(file_size == -1L) printf("!File Size is 0! : %s", strerror(errno));
     rewind(file_onegin);
     return file_size;
+}
+
+int ReplaceSymbol(char* text, int count_elements, char in, char out, struct Book *Onegin)
+{
+    int c_lines = 1;
+    for(int i = 0; i < count_elements; i++)
+    {
+        if(text[i] == in)
+        {
+            text[i] = out;
+            Onegin->adreses[c_lines] = &(Onegin->text[i+1]);
+            c_lines += 1;
+        } //!replace doooo.h!
+    }
+    return c_lines;
 }
