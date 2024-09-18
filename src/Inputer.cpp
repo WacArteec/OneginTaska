@@ -7,7 +7,6 @@
 #include "Inputer.h"
 #include "StructuresForOnegin.h"
 
-#define $$$
 
 int FileInfo(FILE *file_onegin);
 int ReplaceSymbol(char* text, int count_elements, char in, char out, struct Book *Onegin);
@@ -49,7 +48,8 @@ $$$ assert(errclose); //!NDEBUG! !change to if!
 
 int FileInfo(FILE *file_onegin)
 {
-    fseek(file_onegin, 0, SEEK_END);
+    int fseek_proof = fseek(file_onegin, 0, SEEK_END);
+$$$ assert(fseek_proof + 1);
     int file_size = ftell(file_onegin);
 $$$ if(file_size == -1L) printf("!File Size is 0! : %s", strerror(errno));
     rewind(file_onegin);

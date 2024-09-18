@@ -4,6 +4,7 @@
 #include <StructuresForOnegin.h>
 
 int StrCmp(char *str1, char *str2);
+void AddrSwapper(char **a, char **b);
 
 void Sorter(struct Book *Onegin)
 {
@@ -14,7 +15,7 @@ void Sorter(struct Book *Onegin)
             if(StrCmp(Onegin->adreses[j], Onegin->adreses[j+1]))
             {
                 printf(" %d = \n", Onegin->adreses[j]);
-                //AddrSwapper((Onegin->adreses[j]), (Onegin->adreses[j+1]));
+                AddrSwapper(&(Onegin->adreses[j]), &(Onegin->adreses[j+1]));
                 printf(" %d \n", Onegin->adreses[j]);
             }
         }
@@ -38,3 +39,9 @@ int StrCmp(char *str1, char *str2)
 }
 
 
+void AddrSwapper(char **a, char **b)
+{
+    char* c = *a;
+    *a = *b;
+    *b = c;
+}

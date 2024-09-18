@@ -1,6 +1,8 @@
 #ifndef STRUCTURESFORONEGIN_H_INCLUDED
 #define STRUCTURESFORONEGIN_H_INCLUDED
 
+#define $$$
+
 struct Book
 {
     char *text;
