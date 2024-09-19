@@ -10,6 +10,7 @@ void AddrSwapper(char** a, char** b);
 void Sorter(struct Book* Onegin)
 {
 $$$ assert(Onegin);
+
     for(int i = 0; i < Onegin->count_lines; i++)
     {
         for(int j = 0; j < Onegin->count_lines - i; j++)
