@@ -7,5 +7,7 @@ obj/Debug/src/Output.o
 OneginTaska.depend
 bin/Debug/OneginTaska.exe
 Onegin/
+OneginTaska.cbp
+OneginTaska.depend
 bin/Debug/OneginTaska.exe
 *.exe
