@@ -5,9 +5,13 @@
 
 struct Book
 {
-    char *text;
+    char* text;
     int count_lines;
-    char* adreses[];
+    int count_elements;
+    char** adreses;
+    FILE* file;
+    size_t file_size;
+    const char file_name[18];
 };
 
 #endif // STRUCTURESFORONEGIN_H_INCLUDED

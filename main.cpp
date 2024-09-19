@@ -7,17 +7,17 @@
 #include <Sorter.h>
 #include <Output.h>
 
-void TextPrint(struct Book *Onegin);
+void TextPrint(struct Book* Onegin);
 
 
 int main()
 {
 
-    struct Book Onegin = {};
+    struct Book Onegin = {0, 0, 0, 0, 0, 0, "EnglishOnegin.txt"};
 
-    StrInput(&Onegin);
+    Input(&Onegin);
 
-    Sorter(&Onegin);
+    //Sorter(&Onegin);
 
     printf("%d", Onegin.count_lines);
 
@@ -29,7 +29,7 @@ int main()
 }
 
 
-void TextPrint(struct Book *Onegin)
+void TextPrint(struct Book* Onegin)
 {
     for(int i = 0; i < Onegin->count_lines; i++)
     {
