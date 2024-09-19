@@ -19,4 +19,7 @@ $$$         assert(outproof > 0);
         }
 
 $$$ assert(!fclose(file_onegin_out_leftsort));
+
+free(Onegin->adreses);
+free(Onegin->text);
 }
