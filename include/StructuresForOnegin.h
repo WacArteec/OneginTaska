@@ -7,7 +7,7 @@ struct Book
 {
     char* text;
     int count_lines;
-    int count_elements;
+    size_t count_elements;
     char** adreses;
     FILE* file;
     size_t file_size;

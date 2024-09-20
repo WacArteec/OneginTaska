@@ -13,12 +13,13 @@ $$$ assert(file_onegin_out_leftsort);
 
         for(int i = 0; i < Onegin->count_lines; i++)
         {
-$$$         printf("\n%d\n", i);
+//$$$         printf("\n%d\n", i);
             int outproof = fputs(Onegin->adreses[i], file_onegin_out_leftsort);
-$$$         assert(outproof > 0);
+$$$         assert(outproof >= 0);
         }
 
-$$$ assert(!fclose(file_onegin_out_leftsort));
+    int fclose_check = fclose(file_onegin_out_leftsort);
+$$$ assert(fclose_check + 1);
 
 free(Onegin->adreses);
 free(Onegin->text);

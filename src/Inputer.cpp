@@ -41,10 +41,10 @@ $$$ if(Onegin->file_size == -1L) printf("!File Size is 0! : %s", strerror(errno)
     rewind(Onegin->file);
 
     Onegin->text = (char*) calloc(Onegin->file_size + 1, sizeof(char));
-//$$$ assert(Onegin->text == Onegin->file_size);
+$$$ assert(Onegin->text);
 
     Onegin->count_elements = fread(Onegin->text, sizeof(char), Onegin->file_size, Onegin->file);
-$$$ assert(Onegin->count_elements);
+$$$ assert(Onegin->count_elements == Onegin->file_size);
 
     int errclose = !fclose(Onegin->file);
 $$$ assert(errclose); //!NDEBUG! !change to if!
@@ -78,4 +78,7 @@ void ReplaceSymbol(struct Book* Onegin)
             j += 1;
         } //!replace doooo.h!
     }
+
+    Onegin->text[Onegin->count_elements] = '\n';
+    Onegin->text[Onegin->count_elements+1] = '\0';
 }
