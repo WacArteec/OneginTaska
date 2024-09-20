@@ -7,8 +7,6 @@
 #include <Sorter.h>
 #include <Output.h>
 
-void TextPrint(struct Book* Onegin);
-
 
 int main()
 {
@@ -24,15 +22,8 @@ int main()
     Outputer(&Onegin);
 
     free(Onegin.text);
+    for(int i = 0; i < Onegin.count_lines; i++) free(Onegin.adreses[i]);
+    free (Onegin.adreses);
 
     return 0;
-}
-
-
-void TextPrint(struct Book* Onegin)
-{
-    for(int i = 0; i < Onegin->count_lines; i++)
-    {
-        printf("%s \n", Onegin->adreses[i]);
-    }
 }

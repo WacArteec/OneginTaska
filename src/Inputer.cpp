@@ -16,7 +16,6 @@ void Input(struct Book* Onegin)
 {
 $$$ assert(Onegin);
 
-//$$$ printf("Before array with adreses");
     FileInput(Onegin);
 
     Onegin->count_lines = StrCounter(Onegin);
@@ -25,7 +24,6 @@ $$$ assert(Onegin);
 
     ReplaceSymbol(Onegin);
 
-//$$$ printf("After array with adreses");
 }
 
 void FileInput(struct Book* Onegin)
@@ -37,7 +35,7 @@ $$$ assert(Onegin->file);
 $$$ assert(fseek_proof + 1);
 
     Onegin->file_size = ftell(Onegin->file);
-$$$ if(Onegin->file_size == -1L) printf("!File Size is 0! : %s", strerror(errno));
+$$$ if(Onegin->file_size == (size_t)(-1L)) printf("!File Size is 0! : %s", strerror(errno));
     rewind(Onegin->file);
 
     Onegin->text = (char*) calloc(Onegin->file_size + 1, sizeof(char));
@@ -53,7 +51,7 @@ $$$ assert(errclose); //!NDEBUG! !change to if!
 int StrCounter(struct Book* Onegin)
 {
     int count_of_lines = 1;
-    for(int i = 0; i < Onegin->count_elements; i++)
+    for(size_t i = 0; i < Onegin->count_elements; i++)
     {
         if(Onegin->text[i] == '\n')
         {
@@ -68,7 +66,7 @@ void ReplaceSymbol(struct Book* Onegin)
     Onegin->adreses[0] = &(Onegin->text[0]);
 
     int j = 1;
-    for(int i = 0; i < Onegin->count_elements; i++)
+    for(size_t i = 0; i < Onegin->count_elements; i++)
     {
         if(Onegin->text[i] == '\r')
         {

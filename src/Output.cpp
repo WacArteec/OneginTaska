@@ -8,19 +8,17 @@ void Outputer(struct Book *Onegin)
 {
 $$$ assert(Onegin);
 
-    FILE* file_onegin_out_leftsort = fopen("OneginSortLeft.txt", "w");
+    FILE* file_onegin_out_leftsort = fopen("OneginSorted.txt", "w");
 $$$ assert(file_onegin_out_leftsort);
 
         for(int i = 0; i < Onegin->count_lines; i++)
         {
-//$$$         printf("\n%d\n", i);
-            int outproof = fputs(Onegin->adreses[i], file_onegin_out_leftsort);
-$$$         assert(outproof >= 0);
+            fprintf(file_onegin_out_leftsort, "%s", Onegin->adreses[i]);
+
+/*            int outproof = fputs(Onegin->adreses[i], file_onegin_out_leftsort);
+$$$         assert(outproof >= 0);*/
         }
 
     int fclose_check = fclose(file_onegin_out_leftsort);
 $$$ assert(fclose_check + 1);
-
-free(Onegin->adreses);
-free(Onegin->text);
 }
