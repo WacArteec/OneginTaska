@@ -7,11 +7,10 @@
 #include <Sorter.h>
 #include <Output.h>
 
-
 int main()
 {
 
-    struct Book Onegin = {0, 0, 0, 0, 0, 0, "EnglishOnegin.txt"};
+    struct Book Onegin = {};
 
     Input(&Onegin);
 
@@ -22,8 +21,7 @@ int main()
     Outputer(&Onegin);
 
     free(Onegin.text);
-    for(int i = 0; i < Onegin.count_lines; i++) free(Onegin.adreses[i]);
-    free (Onegin.adreses);
+    free (Onegin.str);
 
     return 0;
 }

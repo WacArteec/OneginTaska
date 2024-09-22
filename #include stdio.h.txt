@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    FILE * ptrFile = fopen( "file.txt" , "rb" );
+
+    if (ptrFile == NULL)
+    {
+        fputs("Ошибка файла", stderr);
+    }
+
+  // определяем размер файла
+  fseek(ptrFile , 0 , SEEK_END);                          // устанавливаем позицию в конец файла
+  long lSize = ftell(ptrFile);                            // получаем размер в байтах
+  rewind (ptrFile);                                       // устанавливаем указатель в конец файла
+
+  char *buffer = (char*) calloc(lSize+1, sizeof(char)); // выделить память для хранения содержимого файла
+  if (buffer == NULL)
+  {
+      fputs("Ошибка памяти", stderr);
+  }
+
+  size_t result = fread(buffer, 1, lSize, ptrFile);       // считываем файл в буфер
+  if (result != lSize)
+  {
+      fputs("Ошибка чтения", stderr);
+  }
+
+  //содержимое файла теперь находится в буфере
+  puts(buffer);
+
+  // завершение работы
+  fclose (ptrFile);
+  free (buffer);
+    return 0;
+}
